@@ -43,9 +43,9 @@ public class prison : MonoBehaviour
                 if (GameManager.Instance.key>0)
                 {
                     
-                    iTween.ShakeScale(this.gameObject, new Vector3(4, 4, 4), 1);
+                    iTween.ShakeScale(this.gameObject, new Vector3(0.4f, 0.4f, 0.4f), 0.5f);
                     GameManager.Instance.key--;
-                    Destroy(this.gameObject,1);
+                    Destroy(this.gameObject,0.7f);
                 }
                 else
                 {
