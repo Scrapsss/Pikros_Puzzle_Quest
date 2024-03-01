@@ -24,16 +24,6 @@ public class PlayerController : MonoBehaviour
         transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
 
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Key"))
-        {
-            GameManager.Instance.key++;
-            GameObject objet_pris = other.gameObject;
-            Destroy(objet_pris);
-
-            Debug.Log("nombre de clé : " + GameManager.Instance.key);
-        }
 
     }
-}
+

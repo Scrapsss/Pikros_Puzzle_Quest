@@ -9,6 +9,7 @@ public class prison : MonoBehaviour
     [SerializeField]private GameObject image_prison;
     [SerializeField] private Text texte_prison;
     private bool est_dans_la_zone = false;
+    [SerializeField] private GameObject explosion_particle;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -45,12 +46,13 @@ public class prison : MonoBehaviour
                     
                     iTween.ShakeScale(this.gameObject, new Vector3(0.4f, 0.4f, 0.4f), 0.5f);
                     GameManager.Instance.key--;
+                    GameObject explosion = Instantiate(explosion_particle,this.transform.position + new Vector3(-0.2f, 0,-2.5f),Quaternion.identity);
                     Destroy(this.gameObject,0.7f);
+                    Destroy(explosion,1);
                 }
                 else
                 {
-                    texte_prison.text = "Il vous manque une clé.";
-                    texte_prison.GetComponent<Text>().color = Color.red;
+                    texte_prison.text = "Il vous manque une clé...";
                     StartCoroutine("text_Delay");
                 }
             }
